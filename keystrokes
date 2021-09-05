@@ -416,7 +416,7 @@ game:GetService("UserInputService").InputBegan:connect(function(input, processed
 	if not processed then
 		if input.KeyCode == getgenv().ksToggleKey then
 			for i, v in pairs(keystrokes:GetChildren()) do
-				if v:IsA("Frame") then
+				if v:IsA("Frame") and v.Name ~= "blur" then
 					v.Visible = not v.Visible
 				end
 			end
