@@ -411,7 +411,7 @@ local function YNYIWA_fake_script() -- keystrokes.m2
 end
 coroutine.wrap(YNYIWA_fake_script)()
 
---Toggle UI
+-- Toggle UI
 game:GetService("UserInputService").InputBegan:connect(function(input, processed)
 	if not processed then
 		if input.KeyCode == getgenv().ksToggleKey then
