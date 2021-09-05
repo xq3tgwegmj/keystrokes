@@ -1,6 +1,8 @@
 -- Gui to Lua
 -- Version: 3.2
 
+getgenv().ksToggleKey = Enum.KeyCode.RightAlt
+
 -- Instances:
 
 local keystrokes = Instance.new("ScreenGui")
@@ -408,3 +410,12 @@ local function YNYIWA_fake_script() -- keystrokes.m2
 	end
 end
 coroutine.wrap(YNYIWA_fake_script)()
+
+--Toggle UI
+game:GetService("UserInputService").InputBegan:connect(function(input, processed)
+	if not processed then
+		if input.KeyCode == getgenv().ksToggleKey then
+			keyElements.Visible = not keyElements.Visible
+		end
+	end
+end)
