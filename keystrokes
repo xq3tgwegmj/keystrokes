@@ -415,7 +415,11 @@ coroutine.wrap(YNYIWA_fake_script)()
 game:GetService("UserInputService").InputBegan:connect(function(input, processed)
 	if not processed then
 		if input.KeyCode == getgenv().ksToggleKey then
-			keyElements.Visible = not keyElements.Visible
+			for i, v in pairs(keystrokes:GetChildren()) do
+				if v:IsA("Frame") then
+					v.Visible = not v.Visible
+				end
+			end
 		end
 	end
 end)
